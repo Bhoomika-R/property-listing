@@ -7,6 +7,12 @@ interface PropertyMapProps {
   property: Property;
 }
 
+declare global {
+  interface Window {
+    google: typeof google;
+  }
+}
+
 export default function PropertyMap({ property }: PropertyMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
@@ -15,8 +21,14 @@ export default function PropertyMap({ property }: PropertyMapProps) {
     const initMap = async () => {
       if (!mapRef.current) return;
 
+      // Wait for Google Maps to load
+      if (!window.google) {
+        console.error("Google Maps JavaScript API not loaded.");
+        return;
+      }
+
       const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
-      
+
       mapInstanceRef.current = new Map(mapRef.current, {
         center: { lat: property.coordinates.lat, lng: property.coordinates.lng },
         zoom: 15,
