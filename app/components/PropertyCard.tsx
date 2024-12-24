@@ -26,6 +26,7 @@ export default function PropertyCard({ property, onLike }: PropertyCardProps) {
   return (
     <div className="property-card" onClick={handleCardClick}>
       <div className="image-slider">
+        {property.mostLiked && <div className="most-liked-tag">Most Liked</div>}
         <img src={property.images[currentImage]} alt={property.title} onClick={nextImage} />
         <div className="slider-dots">
           {property.images.map((_, index) => (
@@ -47,20 +48,19 @@ export default function PropertyCard({ property, onLike }: PropertyCardProps) {
           }}
         >
           <Heart
-            size={20}
+            size={16}
             fill={property.liked ? '#ff0000' : 'none'}
             color={property.liked ? '#ff0000' : '#666666'}
           />
         </button>
       </div>
       <div className="property-info">
-        <h3 className="property-title">{property.title}</h3>
-        <p className="property-location">{property.location}</p>
         <div className="property-stats">
-          <span>{property.views.toLocaleString()} views</span>
-          <span>★ {property.rating}</span>
-          <span>{property.dateRange}</span>
+          <span className="views">👁 {property.views.toLocaleString()}</span>
+          <span className="rating">★ {property.rating}</span>
         </div>
+        <h3 className="property-title">{property.title}</h3>
+        <div className="property-date">{property.dateRange}</div>
       </div>
     </div>
   );
