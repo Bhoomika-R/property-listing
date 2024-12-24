@@ -1,0 +1,104 @@
+.property-detail {
+  padding-bottom: 80px;
+}
+
+.property-header {
+  position: relative;
+}
+
+.property-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0 0 24px 24px;
+}
+
+.property-title-section {
+  padding: 20px;
+}
+
+.property-title-section h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.property-title-section h2 {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.emi-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.location-section {
+  padding: 20px;
+}
+
+.location-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.location-address {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.property-map {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.view-map-button {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.amenities-container {
+  padding: 20px;
+}
+
+.amenities-container h3 {
+  margin-bottom: 16px;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.amenity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.amenity-icon {
+  font-size: 24px;
+}
+
+.amenity-count {
+  font-weight: 600;
+}
+
+.amenity-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
