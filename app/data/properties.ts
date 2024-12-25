@@ -14,7 +14,6 @@ export interface Property {
     lng: number;
   };
   locationDetails:string;
-
 }
 
 export const properties: Property[] = [

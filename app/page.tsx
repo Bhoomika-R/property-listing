@@ -5,7 +5,7 @@ import PropertyCard from './components/PropertyCard';
 import Navigation from './components/Navigation';
 import { properties as initialProperties } from './data/properties';
 import './styles/globals.css';
-
+import Header from './components/Header';
 export default function Home() {
   const [properties, setProperties] = useState(initialProperties);
   const [visibleCount, setVisibleCount] = useState(6);
@@ -35,6 +35,7 @@ export default function Home() {
 
   return (
     <main>
+      <Header/>
       <div className="container">
         <div className="property-grid">
           {properties.slice(0, visibleCount).map(property => (

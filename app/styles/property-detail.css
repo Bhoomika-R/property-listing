@@ -2,7 +2,7 @@
 :root {
   --primary-color: #FF6B00;
   --text-primary: #333333;
-  --text-secondary: #666666;
+  --text-secondary: #888888;
   --background: #FFFFFF;
   --secondary-color:#234F68
 }
@@ -69,6 +69,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 /* Content Section */
@@ -79,7 +80,7 @@
 
 /* Title Section */
 .title-section {
-  margin-bottom: 28px;
+  margin-bottom: 0px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -134,7 +135,7 @@
 
 /* Location Section */
 .location-section {
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .section-title {
@@ -146,22 +147,29 @@
 
 .location-card {
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* Center-align icon and text */
   gap: 12px;
-  background: #FFF6F0;
-  padding: 16px;
+  /* padding: 16px; */
   border-radius: 16px;
   margin-bottom: 16px;
 }
 
 .location-icon {
-  color: var(--primary-color);
+  color: black;
   flex-shrink: 0;
+  background: rgba(255, 173, 97, 0.15);
+  padding: 14px;
+  border-radius: 50%; /* Make the icon circular */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center icon content */
+  width: 50px; /* Fixed size for uniformity */
+  height: 50px;
 }
 
 .location-address {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: #4F4F4F; /* Neutral dark gray text color */
   line-height: 1.5;
   flex: 1;
 }
@@ -173,22 +181,31 @@
 .map-container {
   width: 100%;
   height: 180px;
-  border-radius: 16px;
+  border-radius: 5px; /* Rounded corners for the map */
   overflow: hidden;
-  margin-bottom: 12px;
+  border: 1px solid #E0E0E0; /* Subtle border to define the map container */
 }
 
 .view-map-button {
   width: 100%;
-  padding: 14px;
-  background: var(--primary-color);
-  color: white;
+  padding: 2px;
+  background: rgba(255, 173, 97, 0.15); /* Orange background for the button */
+  color: #FF7504;
   border: none;
-  border-radius: 12px;
+  border-bottom-right-radius: 8px; /* Rounded corners for the button */
+  border-bottom-left-radius: 8px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  text-align: center;
+  transition: background 0.3s ease;
 }
+
+.view-map-button:hover {
+  background: #E69556; /* Slightly darker orange on hover */
+}
+
 
 /* Amenities Section */
 .amenities-grid {

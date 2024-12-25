@@ -202,3 +202,8 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+.header-logo {
+  margin: 0 auto;
+  margin-top: 16px;
+}
