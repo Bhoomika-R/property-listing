@@ -12,10 +12,9 @@ export default function Home() {
 
   const handleScroll = () => {
     if (
-      window.innerHeight + document.documentElement.scrollTop
-      === document.documentElement.offsetHeight
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40
     ) {
-      setVisibleCount(prev => Math.min(prev + 4, properties.length));
+      setVisibleCount(prev => Math.min(prev + 2, properties.length));
     }
   };
 
