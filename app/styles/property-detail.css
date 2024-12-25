@@ -197,15 +197,14 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Slight shadow for depth */
   text-align: center;
-  transition: background 0.3s ease;
+  /* transition: background 0.3s ease; */
 }
 
-.view-map-button:hover {
-  background: #E69556; /* Slightly darker orange on hover */
+.amenities-section {
+  margin-top: 40px;
 }
-
 
 /* Amenities Section */
 .amenities-grid {
@@ -256,12 +255,12 @@
 }
 
 .type-button {
-  padding: 10px 24px;
+  padding: 7px 20px;
   border-radius: 24px;
   border: 1px solid #E5E5E5;
   background: #F8F8F8;
   font-size: 14px;
-  color: var(--text-secondary);
+  color: #1F4C6B;
   cursor: pointer;
 }
 
@@ -272,13 +271,13 @@
 }
 
 .amenities-type-button {
-  padding: 5px;
+  padding: 5px 7px;
   border-radius: 24px;
   border: 1px solid #E5E5E5;
   display: flex;
   justify-content: center;
   background: #F8F8F8;
   font-size: 12px;
-  color: var(--text-secondary);
+  color: #1F4C6B;
   cursor: pointer;
 }

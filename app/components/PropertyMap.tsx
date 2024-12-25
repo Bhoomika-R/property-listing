@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
 import { Property } from '../data/properties';
 import Image from 'next/image';
-
+import '../styles/property-detail.css'
 interface PropertyMapProps {
   property: Property;
 }
@@ -82,6 +82,7 @@ export default function PropertyMap({ property }: PropertyMapProps) {
           console.error('Error loading Google Maps:', error);
         }}
       />
+      <div>
       <div className="map-wrapper">
           <Image 
             src="https://cdn.prod.website-files.com/5c29380b1110ec92a203aa84/66e5ce469b48938aa34d8684_Google%20Maps%20-%20Compressed.jpg"
@@ -91,6 +92,8 @@ export default function PropertyMap({ property }: PropertyMapProps) {
             onClick={openInGoogleMaps} // open Google Maps on click
             style={{ cursor: 'pointer' }}
           />
+      </div>
+      <button className="view-map-button" onClick={openInGoogleMaps} style={{position:'absolute', marginTop:'-15px'}}>View on Map</button>
       </div>
     </>
   );
