@@ -17,13 +17,13 @@ export default function WishlistPage() {
           </p>
         ) : (
           <div className="property-grid">
-            {wishlistItems.map(property => (
+            {/* {wishlistItems.map(property => (
               <PropertyCard
                 key={property.id}
                 property={property}
                 onLike={toggleWishlist}
               />
-            ))}
+            ))} */}
           </div>
         )}
       </div>
