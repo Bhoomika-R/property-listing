@@ -24,8 +24,8 @@ export default function PropertyCard({ property, onLike }: PropertyCardProps) {
   };
 
   return (
-    <div>
-      <div className="property-card" onClick={handleCardClick}>
+    <div onClick={handleCardClick}>
+      <div className="property-card">
         <div className="image-slider">
           {property.mostLiked && (
             <div className="most-liked-tag">Most Liked</div>
