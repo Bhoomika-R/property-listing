@@ -24,11 +24,6 @@ export default function PropertyDetail({
     return <div>Property not found</div>;
   }
 
-  const openInGoogleMaps = (locationUrl) => {
-    const { lat, lng } = property.coordinates;
-    window.open(locationUrl, '_blank');
-  };
-
   return (
     <div>
     <div className="property-detail">
