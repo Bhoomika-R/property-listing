@@ -57,10 +57,10 @@ export default function PropertyCard({ property, onLike }: PropertyCardProps) {
       <div className="property-info">
         <div className="property-stats">
           <span className="views">👁 {property.views.toLocaleString()}</span>
-          <span className="rating">★ {property.rating}</span>
+          <span className="rating" style={{ color: property.rating < 3 ? 'red' : property.rating < 4 ? 'orange' : 'green' }}>★ {property.rating}</span>
         </div>
-        <h3 className="property-title">{property.title}</h3>
-        <div className="property-date">{property.dateRange}</div>
+        <p className="property-title">{property.title}</p>
+        <div className="property-date" >{property.dateRange}</div>
       </div>
     </div>
   );
