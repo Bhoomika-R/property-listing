@@ -12,7 +12,6 @@ export async function generateStaticParams() {
   }));
 }
 
-// Make the component a Server Component since we're using static params
 export default function PropertyDetail({ params }: { params: { id: string } }) {
   const property = properties.find((p) => p.id === params.id);
 
