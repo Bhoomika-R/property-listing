@@ -62,7 +62,6 @@ export default function PropertyDetail({
               <PropertyMap property={property} />
             </div>
             <button className="view-map-button" 
-            // onClick={() => openInGoogleMaps(property.locationDetails)}
             >
               View on Map
             </button>
