@@ -63,7 +63,7 @@ export default function PropertyDetail({ params }: { params: { id: string } }) {
               <div className="map-container">
                 <PropertyMap property={property} />
               </div>
-
+              <button className="view-map-button" >View on Map</button>
             </div>
           </div>
 
