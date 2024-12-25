@@ -24,28 +24,83 @@ export default function PropertyDetail({
     return <div>Property not found</div>;
   }
 
+  const openInGoogleMaps = (locationUrl) => {
+    const { lat, lng } = property.coordinates;
+    window.open(locationUrl, '_blank');
+  };
+
   return (
+    <div>
     <div className="property-detail">
+      
+
       <div className="property-header">
+        <div className="most-liked-tag">Most liked</div>
         <img src={property.images[0]} alt={property.title} className="property-image" />
-        <div className="property-title-section">
-          <h1>{property.title}</h1>
-          <h2>1.5 Cr</h2>
-          <p className="emi-text">EMI Available</p>
+      </div>
+
+      <div className="content">
+        <div className="title-section">
+          <div className="title-row">
+            <h1>{property.title}</h1>
+            <div className="price-row">
+              <h2>{property.price}</h2>
+              <span className="emi-tag">EMI Available</span>
+            </div>
+          </div>
+          <div className="location-pin">
+            <MapPin size={16} />
+            <span>Sector 57, Gurgaon</span>
+          </div>
+        </div>
+
+        <div className="location-section">
+          <h3 className="section-title">Location</h3>
+          <div className="location-card">
+            <MapPin size={20} className="location-icon" />
+            <p className="location-address">
+              {property.locationDetails}
+            </p>
+          </div>
+          <div className="map-section">
+            <div className="map-container">
+              <PropertyMap property={property} />
+            </div>
+            <button className="view-map-button" 
+            // onClick={() => openInGoogleMaps(property.locationDetails)}
+            >
+              View on Map
+            </button>
+          </div>
+        </div>
+
+        <div className="amenities-section">
+          <div className="amenities-grid">
+            <div className="amenities-type-button">
+              <span className="count" style={{marginRight:'2px'}}>2</span>
+              <span className="label">Hospital</span>
+            </div>
+            <div className="amenities-type-button">
+              <span className="count" style={{marginRight:'2px'}}>4</span>
+              <span className="label">Gas stations</span>
+            </div>
+            <div className="amenities-type-button">
+              <span className="count" style={{marginRight:'2px'}}>2</span>
+              <span className="label">Schools</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="property-type">
+          <h3>Property Ammenties</h3>
+          <div className="type-buttons">
+            <button className="type-button active">House</button>
+            <button className="type-button">Apartment</button>
+          </div>
         </div>
       </div>
 
-      <div className="location-section">
-        <div className="location-header">
-          <MapPin size={20} />
-          <h3>Location</h3>
-        </div>
-        <p className="location-address">{property.location}</p>
-        <PropertyMap property={property} />
-        <button className="view-map-button">View on Map</button>
-      </div>
-
-      <PropertyAmenities />
+    </div>
       <Navigation />
     </div>
   );
