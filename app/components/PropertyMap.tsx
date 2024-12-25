@@ -5,6 +5,7 @@ import Script from 'next/script';
 import { Property } from '../data/properties';
 import Image from 'next/image';
 import '../styles/property-detail.css'
+import { openInGoogleMaps } from '@/lib/googleMapsUtils';
 interface PropertyMapProps {
   property: Property;
 }
@@ -14,7 +15,6 @@ export default function PropertyMap({ property }: PropertyMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
 
-  // URL for static Google Maps preview image
   const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${property.coordinates.lat},${property.coordinates.lng}&zoom=15&size=600x400&markers=color:red%7C${property.coordinates.lat},${property.coordinates.lng}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`;
 
   const initMap = () => {
@@ -28,21 +28,18 @@ export default function PropertyMap({ property }: PropertyMapProps) {
       return;
     }
 
-    // Initialize the map
     mapInstanceRef.current = new google.maps.Map(mapRef.current, {
       center: { lat: property.coordinates.lat, lng: property.coordinates.lng },
       zoom: 15,
       gestureHandling: 'cooperative',
     });
 
-    // Add a marker
     const marker = new google.maps.Marker({
       position: { lat: property.coordinates.lat, lng: property.coordinates.lng },
       map: mapInstanceRef.current,
       title: property.title,
     });
 
-    // Add an info window
     const infoWindow = new google.maps.InfoWindow({
       content: `<div>
                   <strong>${property.title}</strong>
@@ -54,7 +51,7 @@ export default function PropertyMap({ property }: PropertyMapProps) {
       infoWindow.open(mapInstanceRef.current, marker);
     });
 
-    setIsMapLoaded(true); // Mark that the map has loaded
+    setIsMapLoaded(true);
   };
 
   useEffect(() => {
@@ -63,15 +60,14 @@ export default function PropertyMap({ property }: PropertyMapProps) {
     }
   }, [property]);
 
-  const openInGoogleMaps = () => {
-    const locationDetailsEncoded = encodeURIComponent(property.locationDetails);
-    const url = `https://www.google.com/maps/search/?api=1&query=${locationDetailsEncoded}`;
-    window.open(url, '_blank');
-  };
+  // const openInGoogleMaps = () => {
+  //   const locationDetailsEncoded = encodeURIComponent(property.locationDetails);
+  //   const url = `https://www.google.com/maps/search/?api=1&query=${locationDetailsEncoded}`;
+  //   window.open(url, '_blank');
+  // };
 
   return (
     <>
-      {/* Load the Google Maps script */}
       <Script
         src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
         strategy="lazyOnload"
@@ -86,9 +82,9 @@ export default function PropertyMap({ property }: PropertyMapProps) {
           <Image 
             src="https://cdn.prod.website-files.com/5c29380b1110ec92a203aa84/66e5ce469b48938aa34d8684_Google%20Maps%20-%20Compressed.jpg"
             alt="Property Location"
-            width={600} // specify width
-            height={400} // specify height
-            onClick={openInGoogleMaps} // open Google Maps on click
+            width={600} 
+            height={400} 
+            onClick={() => openInGoogleMaps(property.locationDetails)}
             style={{ cursor: 'pointer' }}
           />
       </div>

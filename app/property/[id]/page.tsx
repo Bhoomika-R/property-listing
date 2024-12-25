@@ -5,7 +5,7 @@ import PropertyAmenities from "../../components/PropertyAmenities";
 import Navigation from "../../components/Navigation";
 import "../../styles/property-detail.css";
 import Header from "@/app/components/Header";
-// Add generateStaticParams for static path generation
+import ViewMapButton from "@/app/components/ViewMapButton";
 export async function generateStaticParams() {
   return properties.map((property) => ({
     id: property.id,
@@ -63,7 +63,7 @@ export default function PropertyDetail({ params }: { params: { id: string } }) {
               <div className="map-container">
                 <PropertyMap property={property} />
               </div>
-              <button className="view-map-button" >View on Map</button>
+              <ViewMapButton locationDetails={property.locationDetails}/>
             </div>
           </div>
 
